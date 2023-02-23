@@ -1,45 +1,18 @@
-apply plugin: 'com.android.library'
-
-def packageName = 'com.mindvalley.android'
-def library_version = '1.0.0'
-
-
-ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'hexagon-recyclerview'
-
-    publishedGroupId = packageName
-    libraryName = 'hexagonrecyclerview'
-    artifact = 'hexagonrecyclerview'
-
-    libraryDescription = 'This is a recyclerview where items are interpolated in a way that looks like a honeycomb. It can be customized to be vertically or horizontally scrollable.'
-
-    siteUrl = 'https://github.com/xresco/Hexagon-Recyclerview'
-    gitUrl = 'https://github.com/xresco/Hexagon-Recyclerview.git'
-
-    libraryVersion = library_version
-
-    developerId = 'xresco'
-    developerName = 'Abed Almoradi'
-    developerEmail = 'abd.almoradi@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
 }
 
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 33
+    buildToolsVersion "33.0.0"
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 23
+        minSdkVersion 21
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -50,15 +23,11 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.4.0'
-    testCompile 'junit:junit:4.12'
-    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
-    androidTestCompile 'com.android.support.test:runner:0.5'
-    androidTestCompile 'com.android.support:support-annotations:23.4.0'
-    compile 'com.android.support:recyclerview-v7:23.4.0'
-    compile 'com.github.siyamed:android-shape-imageview:0.9.+@aar'
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation "androidx.activity:activity-ktx:1.6.1"
+    
+    implementation 'com.github.siyamed:android-shape-imageview:0.9.3'
 }
-
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'

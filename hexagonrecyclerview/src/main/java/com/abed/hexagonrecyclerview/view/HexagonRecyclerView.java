@@ -2,15 +2,14 @@ package com.abed.hexagonrecyclerview.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.drawable.LayerDrawable;
-import android.os.Build;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.ViewTreeObserver;
+
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.abed.hexagonrecyclerview.R;
 import com.abed.hexagonrecyclerview.controller.HorizontalOverlapDecorator;
@@ -94,13 +93,8 @@ public class HexagonRecyclerView extends RecyclerView {
                 else
                     setPadding(0, 0, 0, item_row_shift);
                 ViewTreeObserver obs = HexagonRecyclerView.this.getViewTreeObserver();
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                    obs.removeOnGlobalLayoutListener(this);
-                } else {
-                    obs.removeGlobalOnLayoutListener(this);
-                }
+                obs.removeOnGlobalLayoutListener(this);
             }
-
         });
     }
 
