@@ -3,11 +3,11 @@ package com.abed.HexagonRecyclerViewSample.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.abed.HexagonRecyclerViewSample.R;
-import com.abed.hexagonrecyclerview.view.HexagonImageView;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
@@ -66,7 +66,7 @@ public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.CustomView
     public static class CustomViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
 
-        HexagonImageView imageView;
+        ImageView imageView;
         ViewHolderClicks clicksListener;
         String image_url;
 
@@ -80,9 +80,8 @@ public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.CustomView
 
         public void setImageUrl(String image_url) {
             this.image_url = image_url;
-            Glide.with((imageView).getContext())
+            Glide.with(imageView)
                     .load(image_url)
-                    .asBitmap()
                     .placeholder(R.drawable.sample)
                     .into(imageView);
         }
